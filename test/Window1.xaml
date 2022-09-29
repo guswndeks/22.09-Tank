@@ -1,0 +1,35 @@
+﻿<Window x:Class="test.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test"
+        mc:Ignorable="d"
+        Title="Window1" Height="550" Width="800">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+       </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5" Background="Crimson"/>
+        <Button x:Name="C2" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="15" Background="Black" Click="C2_Click" >
+            <Image Source="Resources/btn_X_close.png" Width="30" Height="30" />
+        </Button>
+        <Button Content="회원가입 " FontStyle="Italic" Foreground="DarkRed" FontSize="40" FontWeight="UltraBold" Grid.Column="2" Grid.Row="1" Background="Red" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button_Click" Height="100" Width="450"/>
+        <Button Content="회원가입." FontStyle="Italic" Foreground="DarkRed" FontSize="27" FontWeight="UltraBold" Grid.Column="2" Grid.Row="2" Background="Red" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button_Click" Height="100" Width="450"/>
+        <Button Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click_1">
+            <Image Source="Resources/회원가입.png" />
+        </Button>
+       
+    </Grid>
+</Window>

@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\btn_login.png" />
+    <None Remove="Resources\btn_X_close.png" />
+    <None Remove="Resources\봉고차.jfif" />
+    <None Remove="Resources\해병대 마크.png" />
+    <None Remove="Resources\회원가입.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EntLibContrib.Data.Tibero">
+      <HintPath>..\..\..\..\..\..\TmaxData\tibero6\bin\EntLibContrib.Data.Tibero.dll</HintPath>
+    </Reference>
+    <Reference Include="Tibero.DataAccess">
+      <HintPath>..\..\..\..\..\..\TmaxData\tibero6\bin\Tibero.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Tibero.DbAccess">
+      <HintPath>..\..\..\..\..\..\TmaxData\tibero6\bin\Tibero.DbAccess.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\btn_login.png" />
+    <Resource Include="Resources\btn_X_close.png" />
+    <Resource Include="Resources\봉고차.jfif" />
+    <Resource Include="Resources\해병대 마크.png" />
+    <Resource Include="Resources\회원가입.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
