@@ -45,7 +45,7 @@ namespace test
 
                 try
                 {
-                    string fsql = "Select ID, PW From Identity where ID = '" + NIDtxt.Text + "';";
+                    string fsql = "Select ID, PW, NAME, AGE From Identity where ID = '" + NIDtxt.Text + "';";
                     TestClass testClass = new TestClass();
                     string[] arySQLResult = TestClass.ContainerC(fsql);
 

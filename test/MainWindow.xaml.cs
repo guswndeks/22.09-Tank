@@ -59,7 +59,6 @@ namespace test
             {
                 string sql = "Select ID, PW, Name, Age From Identity where ID = '" + IDtxt.Text + "';";
                 TestClass testClass = new TestClass();
-                string[] arySQLResult = TestClass.ContainerC(sql);
 
 
 
@@ -77,7 +76,7 @@ namespace test
 
 
 
-
+                string[] arySQLResult = TestClass.ContainerC(sql);
 
 
 

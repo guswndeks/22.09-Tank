@@ -40,7 +40,7 @@ namespace test
                 {
                     try
                     {
-                        string sql = "Select ID, PW From Identity where ID = '" + ID.Text + "'and PW = '" + PW.Text + "';";
+                        string sql = "Select ID, PW, NAME, AGE From Identity where ID = '" + ID.Text + "'and PW = '" + PW.Text + "';";
                         TestClass testClass = new TestClass();
                         string[] arySQLResult = TestClass.ContainerC(sql);
 

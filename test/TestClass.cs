@@ -13,7 +13,10 @@ namespace test
 {
     public class TestClass
     {
-
+        public static string resultID = string.Empty;
+        public static string resultPW = string.Empty;
+        public static string resultNM = string.Empty;
+        public static string resultAGE = string.Empty;
 
         public static string[] ContainerC(string sql)
         {
@@ -46,14 +49,20 @@ namespace test
                 }
 
                 conn.Close();
-                
-            
-                test2class test2class = new test2class();
-                
+                string[] arySQLResult = list.ToArray();
 
-                
+                if (arySQLResult.Length > 0)
+                {
 
-                return list.ToArray();
+                    resultID = arySQLResult[0].ToString();
+                    resultPW = arySQLResult[1].ToString();
+                    resultNM = arySQLResult[2].ToString();
+                    resultAGE = arySQLResult[3].ToString();
+
+                }
+
+
+                return arySQLResult;
             }
             catch (Exception)
             {
@@ -61,6 +70,13 @@ namespace test
                 throw;
             }
         }
+
+        public static string[] GetUserInfo()
+        {
+            string[] strarry = { resultID , resultPW, resultNM, resultAGE };
+            return strarry;
+        }
+
     }
 
 

@@ -13,22 +13,22 @@
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="320"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <StackPanel Background="DarkRed" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="8"/>
         <Label Content="계정      탈퇴" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Background="Yellow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" FontFamily="Gungsuh" />
-        <Button Grid.Column="3" Grid.Row="0" Width="40" Height="40" Margin="20,0,0,30" Click="Close_Click" RenderTransformOrigin="0.489,0.499">
+        <Button Grid.Column="3" Grid.Row="0" Width="20" Height="20" Margin="55.0,0,0,0" Click="Close_Click" >
 
         </Button>
         <Label Content="회원 정보 확인" Grid.Column="2" Grid.Row="2" Background="LightGoldenrodYellow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" />

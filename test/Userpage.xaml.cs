@@ -25,6 +25,25 @@ namespace test
         public Userpage()
         {
             InitializeComponent();
+            Loaded += Userpage_Loaded;
+        }
+
+        private void Userpage_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string[] strarryresult = TestClass.GetUserInfo();
+
+                ID.Text = strarryresult[0];
+                PW.Text = strarryresult[1];
+                N.Text = strarryresult[2];
+                A.Text = strarryresult[3];
+                NID.Text = strarryresult[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -48,7 +67,7 @@ namespace test
             {
               try
                 {
-                    string sql = "Select ID From Identity where ID = '" + ID.Text + "';";
+                    string sql = "Select ID, PW, NAME, AGE From Identity where ID = '" + ID.Text + "';";
                     TestClass testClass = new TestClass();
                     string[] arySQLResult = TestClass.ContainerC(sql);
 
@@ -66,7 +85,7 @@ namespace test
                         {
                             try
                             {
-                                string usql = "Update Identity Set Name = '" + NN.Text +  "',Age =  '" + NA.Text + "'Where ID = '" + ID.Text + "';";
+                                string usql = "Update Identity Set Name = '" + NN.Text +  "',Age =  '" + NA.Text + "',PW =  '" + NPW.Text + "'Where ID = '" + ID.Text + "';";
                                 
                                 string[] arySQLResult2 = TestClass.ContainerC(usql);
                                 MessageBox.Show("해당 정보가 수정되었습니다. 다시 로그인해주십시오.");
@@ -75,10 +94,9 @@ namespace test
                                 window1.ShowDialog();
 
                             }
-                            catch
+                            catch(Exception ex)
                             {
-                                MessageBox.Show("문제가 발생했으므로 셧다운합니다. \n\r 다시 작동시켜주세요.");
-                                App.Current.Shutdown();
+                                MessageBox.Show(ex.Message);
                             }
                         }
 
@@ -89,15 +107,13 @@ namespace test
                     }
 
                 }
-              catch
+                catch (Exception ex)
                 {
-                    MessageBox.Show("계정 조회 실패, 다시 입력해주세요.");
-                    ID.Focus();
-                    return ;
+                    MessageBox.Show(ex.Message);
                 }
-                    
-                
-                    
+
+
+
             }
         }
     }
