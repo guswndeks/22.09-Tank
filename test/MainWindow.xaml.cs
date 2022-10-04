@@ -43,13 +43,13 @@ namespace test
         {
             if (string.IsNullOrEmpty(IDtxt.Text))
             {
-                MessageBox.Show("아이디를 입력하라!");
+                MessageBox.Show("아이디를 입력해주십시오.");
                 IDtxt.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(PWtxt.Password))
             {
-                MessageBox.Show("비밀번호를 입력하라!");
+                MessageBox.Show("비밀번호를 입력해주십시오");
                 PWtxt.Focus();
                 return;
             }
@@ -91,7 +91,7 @@ namespace test
 
                     if (string.IsNullOrEmpty(result1))
                     {
-                        MessageBox.Show("아이디를 다시 입력하라!");
+                        MessageBox.Show("아이디를 다시 입력해주십시오.");
                         
                     }
                     else
@@ -107,7 +107,7 @@ namespace test
                         }
                         else
                         {
-                            MessageBox.Show("비밀번호를 다시 입력하라!");
+                            MessageBox.Show("비밀번호를 다시 입력해주십시오.");
                         }
 
                     }
@@ -116,7 +116,7 @@ namespace test
                 }
                 else
                 {
-                   MessageBox.Show("아이디를 다시 입력하라!");
+                   MessageBox.Show("아이디를 다시 입력해주십시오.");
                 }
                 
                 
