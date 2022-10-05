@@ -33,9 +33,9 @@
         </Button>
         <Label Content="회원 정보 확인" Grid.Column="2" Grid.Row="2" Background="LightGoldenrodYellow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" />
         <Label Content="ID:" Grid.Column="1" Grid.Row="4" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="100" Height="60" FontSize="25" FontFamily="Gungsuh" />
-        <TextBox x:Name="ID" Grid.Column="2" Grid.Row="4" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="25" FontFamily="Gungsuh" />
+        <TextBox x:Name="ID" KeyDown="ID_KeyDown" Grid.Column="2" Grid.Row="4" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="25" FontFamily="Gungsuh" />
         <Label Content="PW:" Grid.Column="1" Grid.Row="5" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Width="100" Height="60" FontSize="25" FontFamily="Gungsuh"/>
-        <TextBox x:Name="PW" Grid.Column="2" Grid.Row="5" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="25" FontFamily="Gungsuh" />
+        <TextBox x:Name="PW" KeyDown="PW_KeyDown" PreviewKeyDown="PW_PreviewKeyDown" PreviewTextInput="PW_PreviewTextInput" Grid.Column="2" Grid.Row="5" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="25" FontFamily="Gungsuh" />
 
 
         <Button Content="탈   퇴" Grid.Column="2" Grid.Row="7" Background="Red" FontSize="40" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click" Margin="10" BorderThickness="5" BorderBrush="Crimson">

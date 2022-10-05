@@ -23,6 +23,7 @@ namespace test
         public WindowSignUp()
         {
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,8 +74,8 @@ namespace test
                         MessageBox.Show("회원가입 성공");
                         MessageBox.Show("해당 계정으로 접속해주세요");
                         Window.GetWindow(this).Close();
-                        test.MainWindow window = new test.MainWindow();
-                        window.ShowDialog();
+                       
+                        
 
 
 
@@ -83,7 +84,7 @@ namespace test
                 catch
                 {
                     MessageBox.Show("에러 발생");
-                    App.Current.Shutdown();    
+                       
                  }
             
 
@@ -92,6 +93,76 @@ namespace test
             
         }
 
-       
+        ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void NIDtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                NPWtxt.Focus();
+            }
+        }
+
+        private void NPWtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                NNtxt.Focus();
+            }
+        }
+
+        private void NNtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                NAtxt.Focus();
+            }
+        }
+
+        private void NAtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+           if(e.Key == Key.Enter)
+            {
+                this.Button_Click_1(sender, e);
+            }
+        }
+
+        private void NIDtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NPWtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if (!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
+        }
+
+        private void NAtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if (!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
+        }
+
+        private void NPWtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NAtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }                           

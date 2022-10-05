@@ -19,14 +19,14 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
-        <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="5" BorderBrush="Crimson">
+        <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="1" KeyDown="Button_KeyDown" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="5" BorderBrush="Crimson">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="5" BorderBrush="Crimson">
+        <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="1" KeyDown="Button_KeyDown_1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="5" BorderBrush="Crimson">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>

@@ -5,7 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="WindowSignUp" Height="1000" Width="1000">
+        Title="WindowSignUp" Height="1000" Width="1000" RenderTransformOrigin="0.5,0.5" WindowStartupLocation="CenterScreen" >
+    <Window.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform/>
+        </TransformGroup>
+    </Window.RenderTransform>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -32,21 +40,21 @@
         </Grid.RowDefinitions>
         <StackPanel Background="Yellow" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="14"/>
         <StackPanel Background="Red" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="13"/>
-       
+
         <Label Content="회원가입을 환영합니다" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Background="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Gungsuh"/>
 
 
         <Label Content="ID: " Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NIDtxt" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <TextBox x:Name="NIDtxt" KeyDown="NIDtxt_KeyDown" PreviewKeyDown="NIDtxt_PreviewKeyDown" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
 
         <Label Content="비밀번호: " Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" />
-        <PasswordBox x:Name="NPWtxt" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="40" FontFamily="Gungsuh" />
+        <PasswordBox x:Name="NPWtxt" KeyDown="NPWtxt_KeyDown" PreviewTextInput="NPWtxt_PreviewTextInput" PreviewKeyDown="NPWtxt_PreviewKeyDown" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="40" FontFamily="Gungsuh" />
 
-        <Label Content="이름: " Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NNtxt" Grid.Row="6" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <Label Content="이름:" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
+        <TextBox x:Name="NNtxt" KeyDown="NNtxt_KeyDown" Grid.Row="6" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
 
         <Label Content="나이: " Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NAtxt" Grid.Row="8" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <TextBox x:Name="NAtxt" KeyDown="NAtxt_KeyDown" PreviewTextInput="NAtxt_PreviewTextInput" PreviewKeyDown="NAtxt_PreviewKeyDown" Grid.Row="8" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
 
         <Label Content="약관 동의 " Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
         <Button Content="약관 동의 읽어보기" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Background="OrangeRed" Width="600" Height="80" Click="Button_Click" FontFamily="Gungsuh"/>
@@ -54,7 +62,7 @@
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="4" ScaleY="4" />
             </CheckBox.LayoutTransform>
-          </CheckBox>
+        </CheckBox>
 
         <Button Grid.Column="2" Grid.Row="12" Click="Button_Click_1" Content="등록 완료" FontSize="60" Width="600" Height="80" FontFamily="Gungsuh" BorderThickness="10" BorderBrush="White">
             <Button.Resources>

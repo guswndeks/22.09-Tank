@@ -30,6 +30,7 @@ namespace test
 
         private void Userpage_Loaded(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 string[] strarryresult = TestClass.GetUserInfo();
@@ -48,7 +49,7 @@ namespace test
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Window.GetWindow(this).Close();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -90,8 +91,7 @@ namespace test
                                 string[] arySQLResult2 = TestClass.ContainerC(usql);
                                 MessageBox.Show("해당 정보가 수정되었습니다. 다시 로그인해주십시오.");
                                 Window.GetWindow(this).Close();
-                                test.Window1 window1 = new test.Window1();
-                                window1.ShowDialog();
+                                
 
                             }
                             catch(Exception ex)
@@ -114,6 +114,80 @@ namespace test
 
 
 
+            }
+        }
+
+
+        /// <summary>
+        /// ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void NID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                NPW.Focus();
+            }
+        }
+
+        private void NPW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                NN.Focus();
+            }
+        }
+
+        private void NN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                NA.Focus();
+            }
+        }
+
+        private void NA_KeyDown(object sender, KeyEventArgs e)
+        {
+            if( e.Key == Key.Enter)
+            {
+                this.Edit_Click(sender, e);
+            }
+        }
+
+        private void NPW_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if(!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
+        }
+
+        private void NN_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            
+        }
+
+        private void NA_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if (!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
+        }
+
+        private void NPW_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void NA_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -131,10 +131,47 @@ namespace test
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-            test.Window1 window1 = new test.Window1();
-            window1.ShowDialog();
+            test.WindowSignUp windowSU = new test.WindowSignUp();
+            windowSU.ShowDialog();
+        }
+
+        private void IDtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if(e.Key == Key.Enter)
+            {
+                PWtxt.Focus();
+            }
+        }
+
+        private void PWtxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                this.Button_Click(sender,e);
+        }
+
+        private void IDtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void PWtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PWtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if (!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
         }
     }
 }

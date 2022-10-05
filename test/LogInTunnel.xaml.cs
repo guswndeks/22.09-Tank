@@ -37,5 +37,25 @@ namespace test
             Resign.Title = "Resign";
             this.Content = Resign;
         }
+
+        ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                this.Edit_Click(sender, e);
+                
+            }
+        }
+
+        private void Button_KeyDown_1(object sender, KeyEventArgs e)
+        {                
+                if (e.Key == Key.Enter)
+                {
+                    this.Resign_Click(sender, e);
+                }
+            }
+        }
     }
-}
+

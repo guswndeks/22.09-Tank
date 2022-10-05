@@ -23,6 +23,7 @@ namespace test
         public Resignpage()
         {
             InitializeComponent();
+            
         }
         private void Resign_Click(object sender, RoutedEventArgs e)
         {
@@ -40,40 +41,55 @@ namespace test
                 {
                     try
                     {
-                        string sql = "Select ID, PW, NAME, AGE From Identity where ID = '" + ID.Text + "'and PW = '" + PW.Text + "';";
+                        string sql = "Select ID, PW, NAME, AGE From Identity where ID = '" + ID.Text + "';";
                         TestClass testClass = new TestClass();
                         string[] arySQLResult = TestClass.ContainerC(sql);
 
                         if (arySQLResult.Length > 0)
                         {
-
+                            
                             string result1 = arySQLResult[0].ToString();
-                            string result2 = arySQLResult[1].ToString();
+                            
 
-                            if (string.IsNullOrEmpty(result1))
+                            if (arySQLResult.Length > 0)
                             {
-                                MessageBox.Show("ID를 다시 입력해주십시오.");
+                                string result2 = arySQLResult[1].ToString();
+                                if (PW.Text == result2)
+                                {
+                                    try
+                                    {
+                                        string dsql = "Delete From Identity where ID = '" + ID.Text + "'and PW = '" + PW.Text + "';";
+
+                                        string[] arySQLResult2 = TestClass.ContainerC(dsql);
+                                        MessageBox.Show("계정이 삭제되었습니다. 그동안 이용해주셔서 감사합니다.");
+                                        App.Current.Shutdown();
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("문제가 발생했으므로 셧다운합니다. \n\r 다시 작동시켜주세요.");
+                                        App.Current.Shutdown();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("비밀번호를 찾을 수 없습니다. 다시 입력해주세요");
+                                    PW.Focus();
+                                }
+                                
                             }
                             else
                             {
-                                try
-                                {
-                                    string dsql = "Delete From Identity where ID = '" + ID.Text + "'and PW = '" + PW.Text + "';";
-
-                                    string[] arySQLResult2 = TestClass.ContainerC(dsql);
-                                    MessageBox.Show("계정이 삭제되었습니다. 그동안 이용해주셔서 감사합니다.");
-                                    App.Current.Shutdown();
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("문제가 발생했으므로 셧다운합니다. \n\r 다시 작동시켜주세요.");
-                                    App.Current.Shutdown();
-                                }
+                                MessageBox.Show("비밀번호를 찾을 수 없습니다. 다시 입력해주세요");
+                                PW.Focus();
+                              
                             }
-                        }
+                            }
+                        
                         else
                         {
-                            MessageBox.Show("아이디를 다시 입력해주십시오.");
+                            MessageBox.Show("아이디를 찾을 수 없습니다. 다시 입력해주세요");
+                            ID.Focus();
+                            
                         }
                     }
                     catch
@@ -93,7 +109,42 @@ namespace test
         }
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            Window.GetWindow(this).Close();
+        }
+
+        ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void ID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                PW.Focus();
+            }
+        }
+
+        private void PW_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                this.Resign_Click(sender, e);
+            }
+        }
+
+        
+
+        private void PW_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.ImeProcessed))
+            {
+                e.Handled = true;
+            }
+        }
+
+    private void PW_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int check;
+            if (!int.TryParse(e.Text, out check))
+            { e.Handled = true; }
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="550">
+        Title="MainWindow" Height="450" Width="550" >
 
 
     <Grid>
@@ -31,12 +31,12 @@
             <Image Source="/Resources/btn_X_close.png" Stretch="None">
             </Image>
         </Button>
-        <TextBox x:Name="IDtxt" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="20" FontFamily="맑은고딕" Height="50" Grid.RowSpan="2"/>
-        <PasswordBox x:Name="PWtxt" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" FontFamily="맑은고딕" >
+        <TextBox x:Name="IDtxt" KeyDown="IDtxt_KeyDown" PreviewKeyDown="IDtxt_PreviewKeyDown" Grid.Row="2" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="20" FontFamily="맑은고딕" Height="50" Grid.RowSpan="2"/>
+        <PasswordBox x:Name="PWtxt" KeyDown="PWtxt_KeyDown" PreviewKeyDown="PWtxt_PreviewKeyDown" PreviewTextInput="PWtxt_PreviewTextInput" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" FontFamily="맑은고딕" >
 
         </PasswordBox>
         
-        <Button Grid.Column="1" Grid.Row="7"  Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button_Click">
+        <Button x:Name ="login"  Grid.Column="1" Grid.Row="7"  Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button_Click">
             <Image Source="/Resources/btn_login.png" Stretch="None"/>
         </Button>
         <Button Grid.Column="1" Grid.Row="6"  Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button3_Click">
