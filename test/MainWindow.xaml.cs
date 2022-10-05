@@ -47,20 +47,32 @@ namespace test
                 IDtxt.Focus();
                 return;
             }
+            if (!IDtxt.Text.IndexOf(" ").Equals(-1))
+            {
+                MessageBox.Show("아이디에 띄어쓰기가 포함되어있습니다. 다시 입력해주세요.");
+                IDtxt.Focus();
+                return;
+            }
+
             if (string.IsNullOrEmpty(PWtxt.Password))
             {
                 MessageBox.Show("비밀번호를 입력해주십시오");
                 PWtxt.Focus();
                 return;
             }
+            if (!PWtxt.Password.IndexOf(" ").Equals(-1))
+            {
+                MessageBox.Show("비밀번호에 띄어쓰기가 포함되어있습니다. 다시 입력해주세요.");
+                PWtxt.Focus();
+                return;
+            }
+
+
             //--------------------------------------------------------------------------------------------------------------------------------------
-            
+
             try
             {
                 string sql = "Select ID, PW, Name, Age From Identity where ID = '" + IDtxt.Text + "';";
-                TestClass testClass = new TestClass();
-
-
 
 
                 //--------------------------------아이디, 패스워드 가져오기----------------------------------------
@@ -79,7 +91,6 @@ namespace test
                 string[] arySQLResult = TestClass.ContainerC(sql);
 
 
-
                 if (arySQLResult.Length > 0)
                 {
                     
@@ -92,27 +103,19 @@ namespace test
                     if (string.IsNullOrEmpty(result1))
                     {
                         MessageBox.Show("아이디를 다시 입력해주십시오.");
-                        
                     }
                     else
                     {
                         if (PWtxt.Password.Equals(result2))
                         {
-
-                            
                             test.LogInTunnel window4 = new test.LogInTunnel();
                             window4.ShowDialog();
-
-
                         }
                         else
                         {
                             MessageBox.Show("비밀번호를 다시 입력해주십시오.");
                         }
-
                     }
-
-
                 }
                 else
                 {
@@ -125,9 +128,6 @@ namespace test
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-              
-                
-             
             }
         }
 
@@ -152,26 +152,6 @@ namespace test
         {
             if (e.Key == Key.Enter)
                 this.Button_Click(sender,e);
-        }
-
-        private void IDtxt_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            
-        }
-
-        private void PWtxt_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key.Equals(Key.ImeProcessed))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void PWtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            int check;
-            if (!int.TryParse(e.Text, out check))
-            { e.Handled = true; }
         }
     }
 }

@@ -31,10 +31,7 @@ namespace test
                 Tibero.DbAccess.OleDbCommandTbr cmd1 = new OleDbCommandTbr();
                 
                 cmd1.CommandText = sql;
-
-
                 cmd1.Connection = conn;
-
 
                 OleDbDataReader reader1 = cmd1.ExecuteReader();
 
@@ -67,6 +64,7 @@ namespace test
             catch (Exception)
             {
                 conn.Close();
+
                 throw;
             }
         }

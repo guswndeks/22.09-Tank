@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -84,13 +85,36 @@ namespace test
                         }
                         else
                         {
+                            if(string.IsNullOrWhiteSpace(NN.Text))
+                            {
+                                MessageBox.Show("이름에 공백이 포함되어있습니다. 다시 한번 입력해주세요.");
+                            }
+                            else
+                            {
+                                if(string.IsNullOrWhiteSpace(NA.Text))
+                                {
+                                    MessageBox.Show("나이에 띄어쓰기가 포함되어있습니다. 다시 한번 입력해주세요.");
+
+                                }
+                                else
+                                {
+                                    if(string.IsNullOrWhiteSpace(NPW.Text))
+                                    {
+                                        MessageBox.Show("비밀번호에 띄어쓰기가 포함되어있습니다. 다시 한번 입력해주세요.");
+                                    }
+                                    else
+                                    {
+                                    string usql = "Update Identity Set Name = '" + NN.Text +  "',Age =  '" + NA.Text + "',PW =  '" + NPW.Text + "'Where ID = '" + ID.Text + "';";
+                                
+                                   string[] arySQLResult2 = TestClass.ContainerC(usql);
+                                    MessageBox.Show("해당 정보가 수정되었습니다. 다시 로그인해주십시오.");
+                                    Window.GetWindow(this).Close();
+                                    }
+                                }
+                            }
                             try
                             {
-                                string usql = "Update Identity Set Name = '" + NN.Text +  "',Age =  '" + NA.Text + "',PW =  '" + NPW.Text + "'Where ID = '" + ID.Text + "';";
                                 
-                                string[] arySQLResult2 = TestClass.ContainerC(usql);
-                                MessageBox.Show("해당 정보가 수정되었습니다. 다시 로그인해주십시오.");
-                                Window.GetWindow(this).Close();
                                 
 
                             }
@@ -113,11 +137,16 @@ namespace test
                 }
 
 
-
             }
+ 
+        
         }
-
-
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+            Window.GetWindow(this).Close();
+            test.LogInTunnel window4 = new test.LogInTunnel();
+            window4.ShowDialog();
+        }
         /// <summary>
         /// ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// </summary>
@@ -158,9 +187,7 @@ namespace test
 
         private void NPW_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            int check;
-            if(!int.TryParse(e.Text, out check))
-            { e.Handled = true; }
+            
         }
 
         private void NN_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -177,7 +204,7 @@ namespace test
 
         private void NPW_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key.Equals(Key.ImeProcessed))
+            if (e.Key.Equals(Key.Space))
             {
                 e.Handled = true;
             }
@@ -189,6 +216,20 @@ namespace test
             {
                 e.Handled = true;
             }
+            if (e.Key.Equals(Key.Space))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void NN_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+       
     }
 }

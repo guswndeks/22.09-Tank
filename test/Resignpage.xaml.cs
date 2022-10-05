@@ -23,7 +23,8 @@ namespace test
         public Resignpage()
         {
             InitializeComponent();
-            
+            string srtID = TestClass.GetUserInfo()[0];
+            ID.Text = srtID;
         }
         private void Resign_Click(object sender, RoutedEventArgs e)
         {
@@ -31,7 +32,7 @@ namespace test
 
             if (mbr == MessageBoxResult.Yes)
             {
-                if (string.IsNullOrEmpty(ID.Text) || string.IsNullOrEmpty(PW.Text))
+                if (string.IsNullOrEmpty(PW.Text))
                 {
                     MessageBox.Show("정보를 모두 입력하시기 바랍니다");
                     ID.Focus();
@@ -42,7 +43,6 @@ namespace test
                     try
                     {
                         string sql = "Select ID, PW, NAME, AGE From Identity where ID = '" + ID.Text + "';";
-                        TestClass testClass = new TestClass();
                         string[] arySQLResult = TestClass.ContainerC(sql);
 
                         if (arySQLResult.Length > 0)
@@ -62,11 +62,13 @@ namespace test
 
                                         string[] arySQLResult2 = TestClass.ContainerC(dsql);
                                         MessageBox.Show("계정이 삭제되었습니다. 그동안 이용해주셔서 감사합니다.");
-                                        App.Current.Shutdown();
                                     }
-                                    catch
+                                    catch (Exception ex)
                                     {
-                                        MessageBox.Show("문제가 발생했으므로 셧다운합니다. \n\r 다시 작동시켜주세요.");
+                                        MessageBox.Show("문제가 발생했으므로 셧다운합니다. \n\r 다시 작동시켜주세요. \n\r" + ex.Message);
+                                    }
+                                    finally
+                                    {
                                         App.Current.Shutdown();
                                     }
                                 }
@@ -83,13 +85,11 @@ namespace test
                                 PW.Focus();
                               
                             }
-                            }
-                        
+                        }                        
                         else
                         {
                             MessageBox.Show("아이디를 찾을 수 없습니다. 다시 입력해주세요");
                             ID.Focus();
-                            
                         }
                     }
                     catch
@@ -111,7 +111,12 @@ namespace test
         {
             Window.GetWindow(this).Close();
         }
-
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
+            test.LogInTunnel window4 = new test.LogInTunnel();
+            window4.ShowDialog();
+        }
         ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void ID_KeyDown(object sender, KeyEventArgs e)
@@ -134,7 +139,7 @@ namespace test
 
         private void PW_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key.Equals(Key.ImeProcessed))
+            if (e.Key.Equals(Key.Space))
             {
                 e.Handled = true;
             }
@@ -142,9 +147,19 @@ namespace test
 
     private void PW_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            int check;
-            if (!int.TryParse(e.Text, out check))
-            { e.Handled = true; }
+            
         }
+
+        private void ID_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+        
+
+        
     }
 }

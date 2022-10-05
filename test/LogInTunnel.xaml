@@ -5,33 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="LogInTunnel" Height="450" Width="550">
+        Title="LogInTunnel" Height="450" Width="550" ResizeMode="NoResize">
     <Grid ShowGridLines="False">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="90"/>
-            <ColumnDefinition Width="210"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="170"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="170"/>
-        </Grid.RowDefinitions>
-        <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="1" KeyDown="Button_KeyDown" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="5" BorderBrush="Crimson">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="1" KeyDown="Button_KeyDown_1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="5" BorderBrush="Crimson">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="4.5*"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="1" KeyDown="Button_KeyDown" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="5" BorderBrush="Crimson">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="1" KeyDown="Button_KeyDown_1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="5" BorderBrush="Crimson">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="30"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        
     </Grid>
 </Window>

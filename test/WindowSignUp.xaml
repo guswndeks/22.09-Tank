@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="WindowSignUp" Height="1000" Width="1000" RenderTransformOrigin="0.5,0.5" WindowStartupLocation="CenterScreen" >
+        Title="WindowSignUp" Height="600" Width="600" RenderTransformOrigin="0.5,0.5" WindowStartupLocation="CenterScreen" >
     <Window.RenderTransform>
         <TransformGroup>
             <ScaleTransform/>
@@ -16,58 +16,58 @@
     </Window.RenderTransform>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <StackPanel Background="Yellow" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="14"/>
-        <StackPanel Background="Red" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="13"/>
+        <StackPanel Background="Yellow" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Grid.RowSpan="15"/>
 
-        <Label Content="회원가입을 환영합니다" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Background="Red" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Gungsuh"/>
+        <Label Content="회원가입을 환영합니다" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Background="Transparent" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Gungsuh"/>
 
 
-        <Label Content="ID: " Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NIDtxt" KeyDown="NIDtxt_KeyDown" PreviewKeyDown="NIDtxt_PreviewKeyDown" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <Label Content="ID: " Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Gungsuh"/>
+        <TextBox x:Name="NIDtxt" KeyDown="NIDtxt_KeyDown" PreviewKeyDown="NIDtxt_PreviewKeyDown" Grid.Row="3" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" MaxLength="15"/>
 
-        <Label Content="비밀번호: " Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" />
-        <PasswordBox x:Name="NPWtxt" KeyDown="NPWtxt_KeyDown" PreviewTextInput="NPWtxt_PreviewTextInput" PreviewKeyDown="NPWtxt_PreviewKeyDown" Grid.Row="4" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="40" FontFamily="Gungsuh" />
+        <Label Content="비밀번호: " Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Gungsuh" />
+        <PasswordBox x:Name="NPWtxt" KeyDown="NPWtxt_KeyDown" PreviewTextInput="NPWtxt_PreviewTextInput" PreviewKeyDown="NPWtxt_PreviewKeyDown" Grid.Row="5" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="40" FontFamily="Gungsuh" MaxLength="20"/>
 
-        <Label Content="이름:" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NNtxt" KeyDown="NNtxt_KeyDown" Grid.Row="6" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <Label Content="이름:" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Gungsuh"/>
+        <TextBox x:Name="NNtxt" KeyDown="NNtxt_KeyDown" PreviewKeyDown="NNtxt_PreviewKeyDown" Grid.Row="7" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" MaxLength="10"/>
 
-        <Label Content="나이: " Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <TextBox x:Name="NAtxt" KeyDown="NAtxt_KeyDown" PreviewTextInput="NAtxt_PreviewTextInput" PreviewKeyDown="NAtxt_PreviewKeyDown" Grid.Row="8" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" Width="600" Height="80"/>
+        <Label Content="나이: " Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Gungsuh"/>
+        <TextBox x:Name="NAtxt" KeyDown="NAtxt_KeyDown" PreviewTextInput="NAtxt_PreviewTextInput" PreviewKeyDown="NAtxt_PreviewKeyDown" Grid.Row="9" Grid.Column="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh" MaxLength="4"/>
 
-        <Label Content="약관 동의 " Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Gungsuh"/>
-        <Button Content="약관 동의 읽어보기" Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50" Background="OrangeRed" Width="600" Height="80" Click="Button_Click" FontFamily="Gungsuh"/>
-        <CheckBox Grid.Row="10" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" >
+        <Label Content="약관 동의 " Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontFamily="Gungsuh"/>
+        <Button Content="약관 동의 읽어보기" Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Background="OrangeRed" Width="600" Height="80" Click="Button_Click" FontFamily="Gungsuh"/>
+        <CheckBox x:Name="AgreeCheck" Checked="Agree" Unchecked="DisAgree" Grid.Row="11" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Gray" Margin="10,0,0,0"  >
             <CheckBox.LayoutTransform>
-                <ScaleTransform ScaleX="4" ScaleY="4" />
+                <ScaleTransform ScaleX="2" ScaleY="2" />
             </CheckBox.LayoutTransform>
         </CheckBox>
 
-        <Button Grid.Column="2" Grid.Row="12" Click="Button_Click_1" Content="등록 완료" FontSize="60" Width="600" Height="80" FontFamily="Gungsuh" BorderThickness="10" BorderBrush="White">
+        <Button Grid.Column="2" Grid.Row="13" Click="Button_Click_1" Content="등록 완료" FontSize="20" FontFamily="Gungsuh" BorderThickness="2" BorderBrush="White">
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="30"/>
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>

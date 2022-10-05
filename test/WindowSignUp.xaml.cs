@@ -20,6 +20,7 @@ namespace test
     /// </summary>
     public partial class WindowSignUp : Window
     {
+        int ACK;
         public WindowSignUp()
         {
             InitializeComponent();
@@ -43,55 +44,106 @@ namespace test
             else
             {
 
-
-                try
+                if (ACK == 1)
                 {
-                    string fsql = "Select ID, PW, NAME, AGE From Identity where ID = '" + NIDtxt.Text + "';";
-                    TestClass testClass = new TestClass();
-                    string[] arySQLResult = TestClass.ContainerC(fsql);
 
-                    if (arySQLResult.Length > 0)
+
+                    try
                     {
-                        string result1 = arySQLResult[0].ToString();
-                        string result2 = arySQLResult[1].ToString();
+                        string fsql = "Select ID, PW, NAME, AGE From Identity where ID = '" + NIDtxt.Text + "';";
+                        TestClass testClass = new TestClass();
+                        string[] arySQLResult = TestClass.ContainerC(fsql);
+
+                        if (arySQLResult.Length > 0)
+                        {
+                            string result1 = arySQLResult[0].ToString();
+                            string result2 = arySQLResult[1].ToString();
 
 
 
-                        MessageBox.Show("중복된 ID입니다. 변경 후 재입력 바랍니다.");
-                        NIDtxt.Focus();
-                        return;
+                            MessageBox.Show("중복된 ID입니다. 변경 후 재입력 바랍니다.");
+                            NIDtxt.Focus();
+                            return;
+
+
+                        }
+
+
+                        else
+                        {
+                            if (string.IsNullOrWhiteSpace(NIDtxt.Text))
+                            {
+                                MessageBox.Show("아이디에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
+                            }
+                            else
+                            {
+                                if (string.IsNullOrWhiteSpace(NPWtxt.Password))
+                                {
+                                    MessageBox.Show("비밀번호에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
+                                }
+                                else
+                                {
+                                    if (string.IsNullOrWhiteSpace(NNtxt.Text))
+                                    {
+                                        MessageBox.Show("이름에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
+                                    }
+                                    else
+                                    {
+                                        if (string.IsNullOrWhiteSpace(NAtxt.Text))
+                                        {
+                                            MessageBox.Show("나이에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
+
+                                        }
+                                        else
+                                        {
+                                            string sql = "Insert Into Identity(ID, PW, Name, Age) Values('" + NIDtxt.Text + "','" + NPWtxt.Password + "','" + NNtxt.Text + "','" + NAtxt.Text + "');";
+
+                                            TestClass testClass2 = new TestClass();
+                                            string[] arySQLResult2 = TestClass.ContainerC(sql);
+                                            MessageBox.Show("회원가입 성공");
+                                            MessageBox.Show("해당 계정으로 접속해주세요");
+                                            Window.GetWindow(this).Close();
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+
+
 
 
                     }
 
-
-                    else
+                    catch
                     {
-                        string sql = "Insert Into Identity(ID, PW, Name, Age) Values('" + NIDtxt.Text + "','" + NPWtxt.Password + "','" + NNtxt.Text + "','" + NAtxt.Text + "');";
-
-                        TestClass testClass2 = new TestClass();
-                        string[] arySQLResult2 = TestClass.ContainerC(sql);
-                        MessageBox.Show("회원가입 성공");
-                        MessageBox.Show("해당 계정으로 접속해주세요");
-                        Window.GetWindow(this).Close();
-                       
-                        
-
-
+                        MessageBox.Show("에러 발생");
 
                     }
+
+
+
+
                 }
-                catch
+
+                else
                 {
-                    MessageBox.Show("에러 발생");
-                       
-                 }
-            
+                    MessageBox.Show("약관에 동의해야 진행할 수 있습니다.");
+                }
 
             }
-
-            
         }
+        private void Agree(object sender, RoutedEventArgs e)
+        {
+            ACK = 1;
+        }
+
+        private void DisAgree(object sender, RoutedEventArgs e)
+        {
+            ACK = 2;
+        }
+
 
         ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -129,7 +181,7 @@ namespace test
 
         private void NIDtxt_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key.Equals(Key.ImeProcessed))
+            if (e.Key.Equals(Key.Space))
             {
                 e.Handled = true;
             }
@@ -137,9 +189,7 @@ namespace test
 
         private void NPWtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            int check;
-            if (!int.TryParse(e.Text, out check))
-            { e.Handled = true; }
+            
         }
 
         private void NAtxt_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -151,7 +201,7 @@ namespace test
 
         private void NPWtxt_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key.Equals(Key.ImeProcessed))
+            if (e.Key.Equals(Key.Space))
             {
                 e.Handled = true;
             }
@@ -163,6 +213,21 @@ namespace test
             {
                 e.Handled = true;
             }
+            if (e.Key.Equals(Key.Space))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void NNtxt_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key.Equals(Key.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+        
+        
     }
 }                           

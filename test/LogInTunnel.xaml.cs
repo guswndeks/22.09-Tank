@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace test
@@ -29,7 +30,9 @@ namespace test
             test.Userpage User = new test.Userpage();
             User.Title = "User";
             this.Content = User;
+            
         }
+        
 
         private void Resign_Click(object sender, RoutedEventArgs e)
         {
