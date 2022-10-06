@@ -5,37 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="LogInTunnel" Height="450" Width="550" ResizeMode="NoResize">
+        Title="LogInTunnel" Height="450" Width="550" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
     <Grid ShowGridLines="False">
         
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="210"/>
-                <ColumnDefinition Width="4.5*"/>
-                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="170"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="110"/>
-                <RowDefinition Height="*"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="1" KeyDown="Button_KeyDown" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="5" BorderBrush="Crimson">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="Resources/bg.PNG" AlignmentY="Center" AlignmentX="Center"/>
+        </Grid.Background>
+
+        <Button Name ="Close" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Click= "Close_Click" Margin="10" Background="Transparent" BorderBrush="Transparent" >
+            <Image Source="/Resources/btn_X_close.png" Stretch="None">
+            </Image>
+        </Button>
+        <Button Content="회원정보 수정" Grid.Column="1" Grid.Row="2" KeyDown="Button_KeyDown" Background="#12223a" FontSize="25" FontFamily="맑은고딕" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Edit_Click"  BorderThickness="3" BorderBrush="White" Foreground="White" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="1" KeyDown="Button_KeyDown_1" Background="Red" FontSize="30" FontFamily="Gungsuh" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="5" BorderBrush="Crimson">
+            <Button Content="계정 탈퇴" Grid.Column="3" Grid.Row="2" KeyDown="Button_KeyDown_1" Background="#12223a" FontSize="25" FontFamily="맑은고딕" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click"  BorderThickness="3" BorderBrush="White" Foreground="White" >
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="30"/>
                     </Style>
                 </Button.Resources>
             </Button>
-        
+        <Image Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Stretch="None"  Source="Resources/greentech_logo.png" Margin="10"/>
     </Grid>
 </Window>

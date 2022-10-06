@@ -143,9 +143,10 @@ namespace test
         }
 private void Button_Click(object sender, RoutedEventArgs e)
 {
-            Window.GetWindow(this).Close();
-            test.LogInTunnel window4 = new test.LogInTunnel();
-            window4.ShowDialog();
+            NavigationService.Navigate
+                 (
+                 new Uri("/LoginTunnel.xaml", UriKind.Relative)
+                 );
         }
         /// <summary>
         /// ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

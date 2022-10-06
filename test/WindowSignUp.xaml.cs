@@ -29,7 +29,20 @@ namespace test
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("제 1장 총칙 \r\n 제 1 조(목적) \r\n 본 약관은 로그인 웹사이트가 제공하는 모든 서비스(이하 \"서비스\")의 이용조건 및 절차, 회원의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다. \r\n 제 2 조(약관의 효력과 변경) \r\n 1. 로그인 창의 서비스 제공 행위 및 회원의 서비스 사용 행위에 본 약관이 우선적으로 적용됩니다. \r\n 2. 로그인 관련 정보는 해당 홈페이지에 명시합니다. \r\n 3. 변경된 약관은 해당 홈페이지에 공지하거나 기입된 연락처를 통해 회원에게 공지하며, 약관의 부칙에 명시된 날 직후부터 그 효력이 인정됩니다. 회원이 변경된 약관에 동의하지 않는 경우, 회원은 해당 서비스에 대해 약관을 해지할 수 있으며, 변경된 약관의 효력 발생일로부터 즉시 실효하며 서비스를 계속 사용할 경우는 약관 변경에 대한 동의로 간주됩니다. \r\n 제 3 조(약관 외 준칙) \r\n 본 약관에 명시되지 않은 사항은 홈페이지 하단에 기술된 해당 법규 및 기타 관련 법령의 규정에 의합니다.");
+            MessageBoxResult mbr = MessageBox.Show("제 1장 총칙 \r\n 제 1 조(목적) \r\n 본 약관은 로그인 웹사이트가 제공하는 모든 서비스(이하 \"서비스\")의 이용조건 및 절차, 회원의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다. \r\n 제 2 조(약관의 효력과 변경) \r\n 1. 로그인 창의 서비스 제공 행위 및 회원의 서비스 사용 행위에 본 약관이 우선적으로 적용됩니다. \r\n 2. 로그인 관련 정보는 해당 홈페이지에 명시합니다. \r\n 3. 변경된 약관은 해당 홈페이지에 공지하거나 기입된 연락처를 통해 회원에게 공지하며, 약관의 부칙에 명시된 날 직후부터 그 효력이 인정됩니다. 회원이 변경된 약관에 동의하지 않는 경우, 회원은 해당 서비스에 대해 약관을 해지할 수 있으며, 변경된 약관의 효력 발생일로부터 즉시 실효하며 서비스를 계속 사용할 경우는 약관 변경에 대한 동의로 간주됩니다. \r\n 제 3 조(약관 외 준칙) \r\n 본 약관에 명시되지 않은 사항은 홈페이지 하단에 기술된 해당 법규 및 기타 관련 법령의 규정에 의합니다.","약관 동의",MessageBoxButton.YesNo);
+
+            if(mbr == MessageBoxResult.Yes)
+            {
+                ACK = 1;
+                AgreeCheck.IsChecked = true;
+            }
+            else if(mbr == MessageBoxResult.No)
+            {
+                ACK = 0;
+                AgreeCheck.IsChecked = false;
+            }
+            
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -227,7 +240,14 @@ namespace test
             }
         }
 
-        
-        
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }                           

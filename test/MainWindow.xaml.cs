@@ -153,5 +153,10 @@ namespace test
             if (e.Key == Key.Enter)
                 this.Button_Click(sender,e);
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

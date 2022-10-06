@@ -8,10 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\bg.png" />
     <None Remove="Resources\btn_login.png" />
     <None Remove="Resources\btn_X_close.png" />
-    <None Remove="Resources\봉고차.jfif" />
-    <None Remove="Resources\해병대 마크.png" />
+    <None Remove="Resources\btn_X_close_on.png" />
+    <None Remove="Resources\btn_X_settings.png" />
+    <None Remove="Resources\btn_X_settings_on.png" />
+    <None Remove="Resources\greentech_logo.png" />
+    <None Remove="Resources\login_logo.png" />
     <None Remove="Resources\회원가입.png" />
   </ItemGroup>
 
@@ -32,10 +36,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\bg.png" />
     <Resource Include="Resources\btn_login.png" />
     <Resource Include="Resources\btn_X_close.png" />
-    <Resource Include="Resources\봉고차.jfif" />
-    <Resource Include="Resources\해병대 마크.png" />
+    <Resource Include="Resources\btn_X_close_on.png" />
+    <Resource Include="Resources\btn_X_settings.png" />
+    <Resource Include="Resources\btn_X_settings_on.png" />
+    <Resource Include="Resources\greentech_logo.png" />
+    <Resource Include="Resources\login_logo.png" />
     <Resource Include="Resources\회원가입.png" />
   </ItemGroup>
 

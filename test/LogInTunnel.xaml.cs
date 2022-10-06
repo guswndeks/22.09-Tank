@@ -59,6 +59,16 @@ namespace test
                     this.Resign_Click(sender, e);
                 }
             }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).Close();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+    }
     }
 
