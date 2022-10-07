@@ -26,6 +26,7 @@ namespace test
         public Userpage()
         {
             InitializeComponent();
+            
             Loaded += Userpage_Loaded;
         }
 
@@ -48,10 +49,7 @@ namespace test
             }
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Close();
-        }
+        
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
@@ -141,13 +139,7 @@ namespace test
  
         
         }
-private void Button_Click(object sender, RoutedEventArgs e)
-{
-            NavigationService.Navigate
-                 (
-                 new Uri("/LoginTunnel.xaml", UriKind.Relative)
-                 );
-        }
+
         /// <summary>
         /// ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// </summary>

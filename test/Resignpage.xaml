@@ -5,40 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:test"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="550"
-      Title="Resignpage" Height="Auto" Width="Auto">
+      d:DesignHeight="290" d:DesignWidth="440"
+      Title="Resignpage" Height="290" Width="440">
     
 
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="20"/>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="65"/>
         </Grid.RowDefinitions>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Resources/bg.PNG" AlignmentY="Center" AlignmentX="Center" />
-        </Grid.Background>
-        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="3" CornerRadius="4" Background="#12223a"/>
-        <Label Content="계정 탈퇴" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" FontFamily="맑은고딕" Foreground="white" Margin="15" />
-        <Button Grid.Column="4" Grid.Row="0" Click="Close_Click" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="20" >
-            <Image Source="Resources/btn_X_close.png" Stretch="None" />
+        
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="5" CornerRadius="4" Background="#12223a"/>
+        <Label Content="계정 탈퇴" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" FontFamily="맑은고딕" Foreground="white" />
+        
             
             
-        </Button>
-        <Button Grid.Column="0" Grid.Row="0" Click="Back_Click" Background="Gray" HorizontalContentAlignment="Left" VerticalContentAlignment="top" Margin="10,10,42,50" />
+        
 
         
         <Label Content="회원 정보 확인" Grid.Column="2" Grid.Row="2" Background="#12225a" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" FontFamily="맑은고딕" Foreground="white" />
@@ -48,13 +44,15 @@
         <TextBox x:Name="PW" KeyDown="PW_KeyDown" PreviewKeyDown="PW_PreviewKeyDown" PreviewTextInput="PW_PreviewTextInput" Grid.Column="2" Grid.Row="5" Background="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" FontFamily="맑은고딕" MaxLength="20"/>
 
 
-        <Button Content="탈   퇴" Grid.Column="2" Grid.Row="6" Background="#12225a" FontSize="30" FontFamily="맑은고딕" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click" Margin="10" BorderThickness="5" BorderBrush="White" Foreground="White" >
+        <Button Content="탈   퇴" Grid.Column="2" Grid.Row="7" Background="#12225a" FontSize="25" FontFamily="맑은고딕" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Resign_Click" Margin="10" BorderThickness="5" BorderBrush="White" Foreground="White" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Image Grid.Column="2" Grid.Row="9"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="None"  Source="Resources/greentech_logo.png" Margin="15"/>
+        
+
+        
     </Grid>
 </Page>

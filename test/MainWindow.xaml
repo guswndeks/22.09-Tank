@@ -14,61 +14,48 @@
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="320"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="440"/>
+            
             <ColumnDefinition Width="*"/>
             
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="5"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="290"/>
+            
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
+        
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="Resources/bg.PNG" AlignmentY="Center" AlignmentX="Center" />
         </Grid.Background>
         
         
-        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="7" Grid.ColumnSpan="4" CornerRadius="4" Background="#12223a"/>
-        <Image Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" Source="/Resources/login_logo.png"
-               Stretch="None"/>
+        
+        
+        
+      
+        
 
 
 
-        <Button Name ="Close" Grid.Column="5" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Click= "Close_Click" Background="Transparent" BorderBrush="Transparent" Margin="10" Padding="0">
+        <Button Name ="Close" Grid.Column="2" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Click= "Close_Click" Background="Transparent" BorderBrush="Transparent" Margin="10" Padding="0">
             <Image Name="climg" Source="/Resources/btn_X_close.png" Stretch="None">
             </Image>
         </Button>
 
 
-        <TextBox x:Name="IDtxt" KeyDown="IDtxt_KeyDown" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" FontFamily="맑은고딕" MaxLength="15" />
-        <PasswordBox x:Name="PWtxt" KeyDown="PWtxt_KeyDown" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="20" FontFamily="맑은고딕" MaxLength="20">
+        <Button Name="Back" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back_Click" Background="Gray" BorderBrush="Transparent" Margin="10" Padding="0" Width="15" Height="15"/>
 
-        </PasswordBox>
-        
-        <Button x:Name ="login"  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7"  Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Center" Click="Button_Click">
-            <Image Source="/Resources/btn_login.png" Stretch="None"/>
-        </Button>
-        <Button Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="6"  Background="#12223a" BorderBrush="#12223a" HorizontalAlignment="Center" Click="Button3_Click">
-            <Image Source="/Resources/회원가입.png" Stretch="None"/>
-        </Button>
-        
-            
-        <Label Content ="ID" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" Foreground="White" />
-        <Label Content ="Password" Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" Foreground="White" />
+
 
 
         <Image Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="6"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="None"  Source="Resources/greentech_logo.png"
                Margin="0,20,0,0"/>
+
+
+        <Frame Name="Fr" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden"/>
         
     </Grid>
 </Window>

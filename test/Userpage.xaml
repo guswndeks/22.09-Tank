@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:test"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="550"
-      Title="Userpage" Height="AUTO" Width="AUTO" >
+      Title="Userpage" Height="290" Width="440" >
     
 
     <Grid ShowGridLines="False">
@@ -29,16 +29,13 @@
             <RowDefinition Height="90"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="Resources/bg.PNG" AlignmentY="Center" AlignmentX="Center" />
-        </Grid.Background>
-        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="4" CornerRadius="4" Background="#12223a"/>
+       
+        <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="8" Grid.ColumnSpan="6" CornerRadius="4" Background="#12223a"/>
         <Label Content="회원정보 수정" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" FontFamily="맑은고딕" Foreground="white" Margin="10"/>
-        <Button Grid.Column="5" Grid.Row="0" Click="Close_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Background="Transparent" BorderBrush="Transparent">
-            <Image Source="Resources/btn_X_close.png" Stretch="None"/>
+        
 
 
-        </Button>
+ 
 
         <Label Content="기존 회원 정보" Grid.Column="2" Grid.Row="1" Background="#12223a" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="18" FontFamily="맑은고딕" Foreground="White" />
         <Label Content="ID:" Grid.Column="1" Grid.Row="2" Background="#12223a" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="18" FontFamily="맑은고딕" Foreground="White" />
@@ -64,9 +61,9 @@
             </Button.Resources>
         </Button>
 
-        <Button Grid.Column="0" Grid.Row="0" Background="Gray" Click="Button_Click" Width="15" Height="15" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="None"  Source="Resources/greentech_logo.png" Margin="10"/>
-
         
+        
+
+       
     </Grid>
 </Page>

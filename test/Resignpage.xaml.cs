@@ -25,6 +25,7 @@ namespace test
             InitializeComponent();
             string srtID = TestClass.GetUserInfo()[0];
             ID.Text = srtID;
+            
         }
         private void Resign_Click(object sender, RoutedEventArgs e)
         {
@@ -107,16 +108,7 @@ namespace test
                 return;
             }
         }
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Close();
-        }
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            Window.GetWindow(this).Close();
-            test.LogInTunnel window4 = new test.LogInTunnel();
-            window4.ShowDialog();
-        }
+        
         ////////////////////////////////////////////////////////////////////////키입력 조절파트////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         private void ID_KeyDown(object sender, KeyEventArgs e)
