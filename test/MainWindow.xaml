@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="550" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="MainWindow" Height="400" Width="550" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen" >
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
@@ -55,6 +55,7 @@
                Margin="0,20,0,0"/>
 
 
+        <Button Name="Chart" Grid.Column="2" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Chart_Click" Background="Red" BorderBrush="Transparent" Margin="10" Padding="0" Width="15" Height="15"/>
         <Frame Name="Fr" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" NavigationUIVisibility="Hidden"/>
         
     </Grid>

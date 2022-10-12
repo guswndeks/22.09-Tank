@@ -60,7 +60,7 @@ namespace test
             string srtID = TestClass.GetUserInfo()[0];
            if(string.IsNullOrEmpty(srtID))
             {
-                
+                MessageBox.Show("뒤로 갈 수 없습니다.");
             }
            else
             {
@@ -69,6 +69,12 @@ namespace test
             }
 
 
+        }
+
+        private void Chart_Click(object sender, RoutedEventArgs e)
+        {
+            test.Chart_DataGrid CD = new test.Chart_DataGrid();
+            CD.ShowDialog();
         }
     }
 }

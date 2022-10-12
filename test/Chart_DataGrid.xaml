@@ -5,30 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="Chart_DataGrid" Height="450" Width="800">
-    <Grid>
+        Title="Chart_DataGrid" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
+    </WindowChrome.WindowChrome>
+    <Grid ShowGridLines="True">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="1" Grid.Column="1">
-            <!--차드영역-->
+        <Button Name ="Close" Grid.Column="2" Grid.Row="0"  Click= "Close_Click" Background="Gray" BorderBrush="Transparent" >
+            <Image Name="climg" Source="/Resources/btn_X_close.png" Stretch="None">
+            </Image>
+        </Button>
+
+        <Border Grid.Row="2" Grid.Column="1">
+            <!--차트영역-->
             
         </Border>
 
-        <Border Grid.Row="3" Grid.Column="1">
+        <Button x:Name="btngriddata" Content="Data" Grid.Row="4" Grid.Column="1" Width="100" HorizontalAlignment="Right"/>
+
+        <Border Grid.Row="5" Grid.Column="1">
             <!--데이터그리드영역-->
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <DataGrid x:Name="datagrid" AutoGenerateColumns="True">
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn x:Name="블록코드"  Binding="{Binding Path='블록코드'}"/>
+                    <DataGridTextColumn x:Name="태그아이디" Binding="{Binding Path='태그아이디'}"/>
+                    <DataGridTextColumn x:Name="항목" Binding="{Binding Path='항목'}"/>
+                    <DataGridTextColumn x:Name="시간" Binding="{Binding Path='시간'}"/>
+                    <DataGridTextColumn x:Name="계측값" Binding="{Binding Path='계측값'}"/>
+                    <DataGridTextColumn x:Name="보정값" Binding="{Binding Path='보정값'}"/>-->
+                    
+                </DataGrid.Columns>
+                
+
+
+
+
+            </DataGrid>
         </Border>
 
     </Grid>

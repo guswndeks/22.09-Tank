@@ -107,6 +107,7 @@ namespace test
                                    string[] arySQLResult2 = TestClass.ContainerC(usql);
                                     MessageBox.Show("해당 정보가 수정되었습니다. 다시 로그인해주십시오.");
                                     Window.GetWindow(this).Close();
+                                        
                                     }
                                 }
                             }

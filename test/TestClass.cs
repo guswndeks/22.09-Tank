@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Data.OleDb;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -18,10 +20,11 @@ namespace test
         public static string resultNM = string.Empty;
         public static string resultAGE = string.Empty;
 
+        public static string strconn = "Provider = tbprov.Tbprov.6; Location=127.0.0.1,8640; Data Source = tiberia; User ID = yoon; Password=9598";
+
         public static string[] ContainerC(string sql)
         {
-            string strconn = "Provider = tbprov.Tbprov.6; Location=127.0.0.1,8640; Data Source = tiberia; User ID = Xerath; Password=9598";
-
+            
             Tibero.DbAccess.OleDbConnectionTbr conn = new OleDbConnectionTbr(strconn);
 
             try
@@ -73,6 +76,33 @@ namespace test
         {
             string[] strarry = { resultID , resultPW, resultNM, resultAGE };
             return strarry;
+        }
+
+        public static DataTable SelectData(string sql)
+        {
+            try
+            {
+                DataTable dtresult = new DataTable();
+
+                Tibero.DbAccess.OleDbConnectionTbr conn = new OleDbConnectionTbr(strconn);
+                conn.Open();
+
+                Tibero.DbAccess.OleDbCommandTbr cmd1 = new OleDbCommandTbr();
+
+                cmd1.CommandText = sql;
+                cmd1.Connection = conn;
+
+                OleDbDataReader reader = cmd1.ExecuteReader();
+
+                dtresult.Load(reader);
+
+                return dtresult;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
     }

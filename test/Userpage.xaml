@@ -61,9 +61,9 @@
             </Button.Resources>
         </Button>
 
-        
-        
+        <Frame Name="Fr" NavigationUIVisibility="Hidden"/>
 
-       
+
+
     </Grid>
 </Page>
