@@ -26,32 +26,110 @@
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
+       
+
         <Button Name ="Close" Grid.Column="2" Grid.Row="0"  Click= "Close_Click" Background="Gray" BorderBrush="Transparent" >
             <Image Name="climg" Source="/Resources/btn_X_close.png" Stretch="None">
             </Image>
         </Button>
 
         <Border Grid.Row="2" Grid.Column="1">
-            <!--차트영역-->
+           
             
         </Border>
-
+             <!--차트영역-->
+        
         <Button x:Name="btngriddata" Content="Data" Grid.Row="4" Grid.Column="1" Width="100" HorizontalAlignment="Right"/>
 
         <Border Grid.Row="5" Grid.Column="1">
             <!--데이터그리드영역-->
-            <DataGrid x:Name="datagrid" AutoGenerateColumns="True">
-                <DataGrid.Columns>
-                    <!--<DataGridTextColumn x:Name="블록코드"  Binding="{Binding Path='블록코드'}"/>
-                    <DataGridTextColumn x:Name="태그아이디" Binding="{Binding Path='태그아이디'}"/>
-                    <DataGridTextColumn x:Name="항목" Binding="{Binding Path='항목'}"/>
-                    <DataGridTextColumn x:Name="시간" Binding="{Binding Path='시간'}"/>
-                    <DataGridTextColumn x:Name="계측값" Binding="{Binding Path='계측값'}"/>
-                    <DataGridTextColumn x:Name="보정값" Binding="{Binding Path='보정값'}"/>-->
-                    
-                </DataGrid.Columns>
-                
+            <DataGrid x:Name="datagrid" AutoGenerateColumns="False" ColumnHeaderHeight="60">
 
+                <DataGrid.Resources>
+                    <Style x:Key="colHead" TargetType="DataGridColumnHeader">
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.Resources>
+
+                <DataGrid.Columns>
+                    <!--테스트 영역-->
+                    <DataGridTemplateColumn x:Name="roothead" Width="*">
+                        <DataGridTemplateColumn.Header>
+
+                            <Grid ShowGridLines="True" Width="140" Height="{Binding ElementName=datagrid, Path=ColumnHeaderHeight}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="0" Grid.Row="1" Text="계측값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Text="보정값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            </Grid>
+                        </DataGridTemplateColumn.Header>
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Width="140">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding MESR_VAL}" />
+                                    <TextBlock Grid.Column="1" Text="{Binding MODI_VAL}" />
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        
+                    </DataGridTemplateColumn>
+                    <!--/테스트 영역-->
+
+                    <DataGridTextColumn  Header="블록코드" Binding = "{Binding Path=BLK_CD}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+                    <DataGridTextColumn Header="태그아이디" Binding="{Binding Path=TAG_ID}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+                    <DataGridTextColumn Header="항목" Binding="{Binding Path=ITEM_CAT}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+                    <DataGridTextColumn  Header="시간" Binding="{Binding Path=MESR_TM}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+                    <DataGridTextColumn Header="계측값" Binding="{Binding Path=MESR_VAL}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+                    <DataGridTextColumn Header="보정값" Binding="{Binding Path=MODI_VAL}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+
+
+                </DataGrid.Columns>
+              <!-- 스타일 파트 -->
+                <DataGrid.CellStyle>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Right" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </DataGrid.CellStyle>
+
+              
 
 
 

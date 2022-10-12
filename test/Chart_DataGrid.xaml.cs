@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using tbcomm.data;
 
 namespace test
 {
@@ -33,11 +34,11 @@ namespace test
             try
             {
                 string strBLK = @"SELECT *
-                                    FROM HMI_COPY   
-                                   WHERE 블록코드 = '000015'
-                                     AND 항목 = 'FL'
-                                     AND 태그아이디 = '1L-42730-501-FRI-O011'
-                                     AND 시간 BETWEEN TO_DATE('20220103000000', 'YYYYMMDDHH24MISS') 
+                                    FROM HMI_MNT_DATA   
+                                   WHERE BLK_CD = '000015'
+                                     AND ITEM_CAT = 'FL'
+                                     AND TAG_ID = '1L-42730-501-FRI-O011'
+                                     AND MESR_TM BETWEEN TO_DATE('20220103000000', 'YYYYMMDDHH24MISS') 
                                                      AND TO_DATE('20220103235959', 'YYYYMMDDHH24MISS');";
 
                 //string strTID = @"SELECT 태그아이디
@@ -89,7 +90,7 @@ namespace test
 
                 DataTable dtresult1 = TestClass.SelectData(strBLK);
 
-                //dtresult1.Columns.Add("비앙세",typeof(string));
+                
                 datagrid.ItemsSource = dtresult1.DefaultView;
 
 
