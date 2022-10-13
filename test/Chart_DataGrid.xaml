@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Chart_DataGrid" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="5" />
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" />
     </WindowChrome.WindowChrome>
     <Grid ShowGridLines="True">
 
@@ -43,7 +43,7 @@
 
         <Border Grid.Row="5" Grid.Column="1">
             <!--데이터그리드영역-->
-            <DataGrid x:Name="datagrid" AutoGenerateColumns="False" ColumnHeaderHeight="60">
+            <DataGrid x:Name="datagrid" AutoGenerateColumns="False" ColumnHeaderHeight="60" >
 
                 <DataGrid.Resources>
                     <Style x:Key="colHead" TargetType="DataGridColumnHeader">
@@ -67,7 +67,7 @@
                     <DataGridTemplateColumn x:Name="roothead" Width="*">
                         <DataGridTemplateColumn.Header>
 
-                            <Grid ShowGridLines="True" Width="140" Height="{Binding ElementName=datagrid, Path=ColumnHeaderHeight}">
+                            <Grid ShowGridLines="False" Width="140" Height="{Binding ElementName=datagrid, Path=ColumnHeaderHeight}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -77,7 +77,7 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="값" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                 <TextBlock Grid.Column="0" Grid.Row="1" Text="계측값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 <TextBlock Grid.Column="1" Grid.Row="1" Text="보정값" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
@@ -108,9 +108,7 @@
 
                     <DataGridTextColumn  Header="시간" Binding="{Binding Path=MESR_TM}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
 
-                    <DataGridTextColumn Header="계측값" Binding="{Binding Path=MESR_VAL}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
-
-                    <DataGridTextColumn Header="보정값" Binding="{Binding Path=MODI_VAL}" Width="*" IsReadOnly="True" HeaderStyle="{StaticResource colHead}"/>
+                    
 
 
                 </DataGrid.Columns>

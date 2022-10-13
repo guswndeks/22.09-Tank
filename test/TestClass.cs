@@ -20,7 +20,7 @@ namespace test
         public static string resultNM = string.Empty;
         public static string resultAGE = string.Empty;
 
-        public static string strconn = "Provider = tbprov.Tbprov.6; Location=127.0.0.1,8640; Data Source = tiberia; User ID = yoon; Password=9598";
+        public static string strconn = "Provider = tbprov.Tbprov.6; Location=127.0.0.1,8640; Data Source = tiberia; User ID = Yoon; Password=9598";
 
         public static string[] ContainerC(string sql)
         {

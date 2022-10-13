@@ -90,6 +90,10 @@ namespace test
                     if (string.IsNullOrEmpty(result1))
                     {
                         MessageBox.Show("아이디를 다시 입력해주십시오.");
+                        IDtxt.Clear();
+                        IDtxt.Focus();
+
+                        return;
                     }
                     else
                     {
@@ -100,12 +104,18 @@ namespace test
                         else
                         {
                             MessageBox.Show("비밀번호를 다시 입력해주십시오.");
+                            PWtxt.Clear();
+                            PWtxt.Focus();
+                            return;
                         }
                     }
                 }
                 else
                 {
                     MessageBox.Show("아이디를 다시 입력해주십시오.");
+                    IDtxt.Clear();
+                    IDtxt.Focus();
+                    return;
                 }
 
 

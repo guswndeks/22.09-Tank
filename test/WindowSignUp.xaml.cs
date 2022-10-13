@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,6 +48,7 @@ namespace test
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
 
             if (string.IsNullOrEmpty(NIDtxt.Text) || string.IsNullOrEmpty(NPWtxt.Password) || string.IsNullOrEmpty(NNtxt.Text) || string.IsNullOrEmpty(NAtxt.Text))
             {
@@ -75,6 +77,7 @@ namespace test
 
 
                             MessageBox.Show("중복된 ID입니다. 변경 후 재입력 바랍니다.");
+                            NIDtxt.Clear();
                             NIDtxt.Focus();
                             return;
 
@@ -84,42 +87,18 @@ namespace test
 
                         else
                         {
-                            if (string.IsNullOrWhiteSpace(NIDtxt.Text))
-                            {
-                                MessageBox.Show("아이디에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
-                            }
-                            else
-                            {
-                                if (string.IsNullOrWhiteSpace(NPWtxt.Password))
-                                {
-                                    MessageBox.Show("비밀번호에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
-                                }
-                                else
-                                {
-                                    if (string.IsNullOrWhiteSpace(NNtxt.Text))
-                                    {
-                                        MessageBox.Show("이름에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
-                                    }
-                                    else
-                                    {
-                                        if (string.IsNullOrWhiteSpace(NAtxt.Text))
-                                        {
-                                            MessageBox.Show("나이에 띄어쓰기가 포함되어있습니다. 다시 한번 확인해주세요.");
-
-                                        }
-                                        else
-                                        {
-                                            string sql = "Insert Into Identity(ID, PW, Name, Age) Values('" + NIDtxt.Text + "','" + NPWtxt.Password + "','" + NNtxt.Text + "','" + NAtxt.Text + "');";
+                            
+                            string sql = "Insert Into Identity(ID, PW, Name, Age) Values('" + NIDtxt.Text + "','" + NPWtxt.Password + "','" + NNtxt.Text + "','" + NAtxt.Text + "');";
 
                                             TestClass testClass2 = new TestClass();
                                             string[] arySQLResult2 = TestClass.ContainerC(sql);
                                             MessageBox.Show("회원가입 성공");
                                             MessageBox.Show("해당 계정으로 접속해주세요");
                                             Window.GetWindow(this).Close();
-                                        }
-                                    }
-                                }
-                            }
+                                        
+                                    
+                                
+                            
 
                         }
 

@@ -86,12 +86,16 @@ namespace test
                             if(string.IsNullOrWhiteSpace(NN.Text))
                             {
                                 MessageBox.Show("이름에 공백이 포함되어있습니다. 다시 한번 입력해주세요.");
+                                NN.Clear();
+                                NN.Focus();
                             }
                             else
                             {
                                 if(string.IsNullOrWhiteSpace(NA.Text))
                                 {
                                     MessageBox.Show("나이에 띄어쓰기가 포함되어있습니다. 다시 한번 입력해주세요.");
+                                    NA.Clear();
+                                    NA.Focus();
 
                                 }
                                 else
@@ -99,6 +103,8 @@ namespace test
                                     if(string.IsNullOrWhiteSpace(NPW.Text))
                                     {
                                         MessageBox.Show("비밀번호에 띄어쓰기가 포함되어있습니다. 다시 한번 입력해주세요.");
+                                        NPW.Clear();
+                                        NPW.Focus();
                                     }
                                     else
                                     {
@@ -127,6 +133,7 @@ namespace test
                     else
                     {
                         MessageBox.Show("아이디를 다시 입력해주십시오.");
+                        
                     }
 
                 }

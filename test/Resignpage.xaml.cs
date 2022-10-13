@@ -76,6 +76,7 @@ namespace test
                                 else
                                 {
                                     MessageBox.Show("비밀번호를 찾을 수 없습니다. 다시 입력해주세요");
+                                    PW.Clear();
                                     PW.Focus();
                                 }
                                 
@@ -83,6 +84,7 @@ namespace test
                             else
                             {
                                 MessageBox.Show("비밀번호를 찾을 수 없습니다. 다시 입력해주세요");
+                                PW.Clear();
                                 PW.Focus();
                               
                             }
@@ -90,12 +92,15 @@ namespace test
                         else
                         {
                             MessageBox.Show("아이디를 찾을 수 없습니다. 다시 입력해주세요");
+                            ID.Clear();
                             ID.Focus();
                         }
                     }
                     catch
                     {
                         MessageBox.Show("계정 조회 실패, 다시 입력해주세요.");
+                        ID.Clear();
+                        PW.Clear();
                         ID.Focus();
                         return;
                     }
